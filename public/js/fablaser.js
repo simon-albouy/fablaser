@@ -1,11 +1,24 @@
 (function ($) {
   'use strict';
 
+  $(".testConnection").on("click", ()=>{
 
-  let isConnect = window.user == "";
+    console.log("click !")
+    let user = $("#email").val();
+    console.log(user);
 
-  console.log(isConnect);
-  
-  $(".connect-button").toogle(isConnect);
+    sessionStorage.setItem("user",user);
+    
+  })
+
+  let userSession = sessionStorage.getItem("user");
+
+  console.log(userSession)
+  let isConnect = userSession == undefined;
+
+  console.log(!isConnect);
+
+  $(".import-button").toggle(!isConnect);
+  $(".connect-button").toggle(isConnect);
 
 })(jQuery);
