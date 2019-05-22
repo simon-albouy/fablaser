@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const fs = require('fs');
 
-
+const db = require('./db');
 
 app.use(session({
   secret: 'batouparlebatard',
@@ -69,6 +69,9 @@ app.get('/', sessionChecker, (req, res) => {
 
 
 app.get('/index', (req, res) => {
+
+  console.log('TEST')
+  //db.test();
   
   res.sendFile(__dirname + '/public/index.html');
   
